@@ -1,0 +1,23 @@
+{{#extends 'base'}}
+
+    {{#block 'content'}}
+        <h1>Tasks Records</h1>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Task Name</th>
+                    <th>Icon Source</lth>
+                    <th></th>
+                </tr>
+            </thead>
+            {{#each tasksRecords}}
+                <tr>
+                    <td>{{this.task_name}}</td>
+                    <td>{{this.icon_source}}</td>
+                </tr>
+            {{/each}}
+        </table>
+    {{/block}}
+
+{{/extends}}
