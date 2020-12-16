@@ -1,29 +1,6 @@
 {{#extends 'base'}}
 
     {{#block 'content'}}
-        <h1>Users Records</h1>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>Username</th>
-                    <th>Password</lth>
-                    <th>Email</th>
-                    <th>Display Name</th>
-                    <th>Gender</th>
-                    <th></th>
-                </tr>
-            </thead>
-            {{#each usersRecords}}
-                <tr>
-                    <td>{{this.username}}</td>
-                    <td>{{this.password}}</td>
-                    <td>{{this.email}}</td>
-                    <td>{{this.displayname}}</td>
-                    <td>{{this.gender}}</td>
-                </tr>
-            {{/each}}
-        </table>
     {{/block}}
 
 {{/extends}}

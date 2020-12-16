@@ -1,27 +1,6 @@
 {{#extends 'base'}}
 
     {{#block 'content'}}
-        <h1>Stats Records</h1>
-
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>UserName</th>
-                    <th>Stats: Health</th>
-                    <th>Stats: Happiness</th>
-                    <th>Stats: Money</th>
-                    <th></th>
-                </tr>
-            </thead>
-            {{#each saveandloadRecords}}
-                <tr>
-                    <td>{{this.username}}</td>
-                    <td>{{this.stats.health}}</td>
-                    <td>{{this.stats.happiness}}</td>
-                    <td>{{this.stats.money}}</td>
-                </tr>
-            {{/each}}
-        </table>
     {{/block}}
 
 {{/extends}}

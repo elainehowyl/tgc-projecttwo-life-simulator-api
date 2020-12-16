@@ -7,9 +7,7 @@ let db = MongoUtil.getDB();
 
 router.get('/', async (req,res)=>{
     let saveandload = await db.collection('saveandload').find().toArray();
-    res.render('saveandload',{
-        'saveandloadRecords':saveandload
-    })
+    res.send(saveandload)
 })
 
 module.exports = router;

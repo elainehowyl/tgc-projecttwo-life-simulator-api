@@ -7,9 +7,7 @@ let db = MongoUtil.getDB();
 
 router.get('/', async (req,res)=>{
     let tasks = await db.collection('tasks').find().toArray();
-    res.render('tasks',{
-        'tasksRecords':tasks
-    })
+    res.send(tasks)
 })
 
 module.exports = router;
