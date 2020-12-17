@@ -3,6 +3,7 @@ const express = require('express');
 const {setupExpressApp} = require('./setupExpress');
 const {setupHBS} = require('./setupHBS');
 const MongoUtil = require('./MongoUtil.js');
+const cors = require('cors')
 
 
 // allows us to inject into the environment (the OS) our environmental variabkes
@@ -21,6 +22,7 @@ async function main() {
     const tasksRoutes = require('./routes/tasksRoutes')
     const saveandloadRoutes = require('./routes/saveandloadRoutes')
 
+    app.use(cors())
 
     app.use('/users', usersRoutes);
     app.use('/tasks', tasksRoutes);
