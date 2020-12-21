@@ -6,28 +6,25 @@ const ObjectId = require('mongodb').ObjectId;
 let db = MongoUtil.getDB();
 
 router.get('/', async (req,res)=>{
-    let users = await db.collection('users').find().toArray();
-    res.send(users)
+    let savedGames = await db.collection('saved_games').find().toArray();
+    res.send(savedGames)
 })
 
-router.get('/:id', async(req,res)=>{
+router.get(':/id', async(req,res)=>{
     let db = MongoUtil.getDB();
-    let user = await db.collection('users').findOne({
+    let savedGame = await db.collection('saved_games').findOne({
         '_id':ObjectId(req.params.id)
     })
-    res.send(user)
+    res.send(savedGame)
 })
 
 router.post('/', async(req,res)=>{
     let db = MongoUtil.getDB();
-    let{
-        username, password, email, displayname, gender
-    } = req.body;
-    let results = await db.collection('users').insertOne({
-        username, password, email, displayname, gender
+    let{username, displayname, gender, stats} = req.body;
+    let results = await db.collection('saved_games').insertOne({
+        username, displayname, gender, stats
     })
     res.send({'inserterdid':results.insertedId})
 })
-
 
 module.exports = router;
