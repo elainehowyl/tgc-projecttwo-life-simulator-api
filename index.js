@@ -22,7 +22,6 @@ async function main() {
     const tasksRoutes = require('./routes/tasksRoutes')
     const savedGames = require('./routes/savedGames')
 
-
     app.use('/users', usersRoutes);
     app.use('/tasks', tasksRoutes);
     app.use('/savedGames', savedGames);
@@ -32,6 +31,6 @@ async function main() {
 main();
 
 // LISTEN
-app.listen(3001, ()=>{
+app.listen(3002, ()=>{
     console.log("Express is running")
 })
