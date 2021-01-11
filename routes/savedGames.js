@@ -39,20 +39,17 @@ router.patch('/:username', async(req,res)=>{
             health,happiness,money
         }
     })
+    res.send({
+        'status': 'OK'
+    })
 })
-
-// router.patch('/:username', async(req,res) => {
-//     let username = req.params.username
-// })
-
-// router.patch('/:username', async(req, res) => {
-//     let username = req.params.username;
-//     let {stats.health, stats.happiness, stats.money}
-// })
 
 router.delete('/:username', async(req,res) => {
     await db.collection('saved_games').deleteOne({
         username:req.params.username
+    })
+    res.send({
+        'status':'OK'
     })
 })
 

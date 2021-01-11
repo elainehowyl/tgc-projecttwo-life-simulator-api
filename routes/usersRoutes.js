@@ -36,6 +36,9 @@ router.delete('/:username', async(req,res) => {
     await db.collection('users').deleteOne({
         username:req.params.username
     })
+    res.send({
+        'status':'OK'
+    })
 })
 
 
