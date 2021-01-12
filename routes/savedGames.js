@@ -30,14 +30,21 @@ router.post('/', async(req,res)=>{
 
 router.patch('/:username', async(req,res)=>{
     let username = req.params.username
-    let{health, happiness, money} = req.body
+    let {stats} = req.body
+    // let{...stats,} = req.body
     await db.collection('saved_games').updateOne({
         'username':username
     },
     {
         $set:{
-            health,happiness,money
+            stats
         }
+            // 'stats.$.health':health,
+            // 'stats.$.happiness':happiness,
+            // 'stats.$.money':money
+            // stats:{
+            //     health,happiness,money
+            // }
     })
     res.send({
         'status': 'OK'
