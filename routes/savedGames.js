@@ -21,23 +21,23 @@ router.get('/:username', async(req,res)=>{
 })
 
 router.post('/', async(req,res)=>{
-    let{username, displayname, gender, stats} = req.body;
+    let{username, displayname, gender, stats, ownedhouses} = req.body;
     let results = await db.collection('saved_games').insertOne({
-        username, displayname, gender, stats
+        username, displayname, gender, stats, ownedhouses
     })
     res.send({'inserterdid':results.insertedId})
 })
 
 router.patch('/:username', async(req,res)=>{
     let username = req.params.username
-    let {stats} = req.body
+    let {stats,ownedhouses} = req.body
     // let{...stats,} = req.body
     await db.collection('saved_games').updateOne({
         'username':username
     },
     {
         $set:{
-            stats
+            stats,ownedhouses
         }
             // 'stats.$.health':health,
             // 'stats.$.happiness':happiness,
