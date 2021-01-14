@@ -22,11 +22,13 @@ async function main() {
     const tasksRoutes = require('./routes/tasksRoutes')
     const savedGames = require('./routes/savedGames')
     const housesRoutes = require('./routes/housesRoutes')
+    const rewardsRoutes = require('./routes/rewardsRoutes')
 
     app.use('/users', usersRoutes);
     app.use('/tasks', tasksRoutes);
     app.use('/savedGames', savedGames);
-    app.use('/houses', housesRoutes)
+    app.use('/houses', housesRoutes);
+    app.use('/rewards', rewardsRoutes)
 }
 
 main();
