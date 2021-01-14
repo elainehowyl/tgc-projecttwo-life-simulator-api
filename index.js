@@ -19,16 +19,16 @@ async function main() {
     await MongoUtil.connect(MONGO_URL, "life_simulator_game");
 
     const usersRoutes = require('./routes/usersRoutes')
-    const tasksRoutes = require('./routes/tasksRoutes')
+    const tasksRoutes = require('./routes/tasks')
     const savedGames = require('./routes/savedGames')
     const housesRoutes = require('./routes/housesRoutes')
-    const rewardsRoutes = require('./routes/rewardsRoutes')
+    const randomEventsRoutes = require('./routes/randomEventsRoutes')
 
     app.use('/users', usersRoutes);
     app.use('/tasks', tasksRoutes);
     app.use('/savedGames', savedGames);
     app.use('/houses', housesRoutes);
-    app.use('/rewards', rewardsRoutes)
+    app.use('/randomEvents', randomEventsRoutes)
 }
 
 main();

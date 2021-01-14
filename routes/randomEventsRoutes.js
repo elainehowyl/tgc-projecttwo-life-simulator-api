@@ -9,15 +9,15 @@ const ObjectId = require('mongodb').ObjectId;
 let db = MongoUtil.getDB();
 
 router.get('/', async (req,res)=>{
-    let rewards = await db.collection('milestone_rewards').find().toArray();
-    res.send(rewards)
+    let randomEvents = await db.collection('random_events').find().toArray();
+    res.send(randomEvents)
 })
 
 router.get('/:id', async(req,res)=>{
-    let reward = await db.collection('milestone_rewards').findOne({
+    let randomEvents = await db.collection('random_events').findOne({
         '_id':ObjectId(req.params.id)
     })
-    res.send(reward)
+    res.send(randomEvents)
 })
 
 module.exports = router;
